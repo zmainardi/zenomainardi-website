@@ -1,0 +1,1 @@
+Version 16 — mobile section spacing correction, smaller section headings, equal-height mobile service cards, full-width Final Product workflow row, desktop equipment list alignment, and typography refinements.
