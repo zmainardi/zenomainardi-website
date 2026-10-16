@@ -1,5 +1,53 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// V15: complete the portfolio wall to 12 real credits before filter state is captured.
+(() => {
+  const wall = document.querySelector(".portfolio-wall");
+  if (!wall) return;
+
+  const currentCount = wall.querySelectorAll(".project").length;
+  if (currentCount >= 12) return;
+
+  const extraProjects = [
+    {
+      cat: "production",
+      image: "https://zenomainardi.com/wp-content/uploads/2021/04/zeno-mainardi-equipment-cirklon-1200x800.jpg",
+      alt: "Studio image used temporarily for Bates Belk — Euphoria",
+      role: "Co-Production",
+      artist: "Bates Belk",
+      title: "Euphoria"
+    },
+    {
+      cat: "mixing post",
+      image: "https://zenomainardi.com/wp-content/uploads/2021/03/Zeno-Mainardi-Berlin-Music-Producer-Audio-Engineer-Analog-Synthesizers-2-1200x800.jpg",
+      alt: "Studio image used temporarily for DaHouse / INNOCEAN — The Client Said No",
+      role: "Sound Mix",
+      artist: "DaHouse / INNOCEAN",
+      title: "The Client Said No"
+    },
+    {
+      cat: "mixing",
+      image: "https://f4.bcbits.com/img/a4133431087_10.jpg",
+      alt: "Bates Belk — Hallucinations EP",
+      role: "Mixing",
+      artist: "Bates Belk",
+      title: "Hallucinations"
+    }
+  ];
+
+  extraProjects.slice(0, Math.max(0, 12 - currentCount)).forEach(project => {
+    const article = document.createElement("article");
+    article.className = "project project-image";
+    article.dataset.cat = project.cat;
+    article.innerHTML = `
+      <img src="${project.image}" alt="${project.alt}" loading="lazy">
+      <div class="project-shade"></div>
+      <div class="project-meta"><span>${project.role}</span><h2>${project.artist}</h2><p>${project.title}</p></div>
+    `;
+    wall.appendChild(article);
+  });
+})();
+
 const buttons = [...document.querySelectorAll(".filters button")];
 const projects = [...document.querySelectorAll(".project")];
 
@@ -63,7 +111,7 @@ document.getElementById("contact-form").addEventListener("submit", event => {
   if (next) next.addEventListener("click", () => show(current + 1));
 })();
 
-// V14: make File Sending Guidelines collapsible on desktop and mobile
+// V14+: make File Sending Guidelines collapsible on desktop and mobile
 (() => {
   const titleRow = document.querySelector(".workflow-title-row");
   const content = document.querySelector(".workflow-content");
