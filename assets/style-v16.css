@@ -1,0 +1,179 @@
+/* =========================================================
+   V16
+   - Mobile section spacing correction
+   - Smaller section headings
+   - Equal-height mobile service cards
+   - Full-width Final Product row on mobile
+   - Desktop equipment list left alignment
+   - Smaller File Sending Guidelines heading
+   - Contact statement sized to match About pullquote
+   ========================================================= */
+
+/* SECTION TITLES: keep clearly below the Zeno Mainardi identity scale. */
+.section-head h1{
+  font-size:clamp(28px,2.8vw,42px) !important;
+}
+
+/* ABOUT + CONTACT statements: same visual size. */
+.pullquote,
+.contact-statement h2{
+  font-size:clamp(22px,2.25vw,34px) !important;
+  line-height:1.06 !important;
+}
+
+/* File Sending Guidelines is secondary information, so reduce emphasis. */
+.file-guidelines .workflow-title-row h2{
+  font-size:clamp(22px,2.35vw,32px) !important;
+}
+
+/* EQUIPMENT DESKTOP:
+   headings centered, content remains easy to scan left-aligned in two columns. */
+.gear-block h3{
+  text-align:center !important;
+}
+.gear-block ul,
+.gear-block .software{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:5px 28px !important;
+  columns:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  list-style:none !important;
+  text-align:left !important;
+}
+.gear-block li{
+  text-align:left !important;
+}
+
+/* PHONE */
+@media (max-width:760px){
+
+  /* Match the tighter desktop top rhythm.
+     Crucially remove the inherited 28px margin below 01 / 02 / 03 etc. */
+  .section,
+  .portfolio,
+  .services,
+  .about,
+  .equipment,
+  .workflow,
+  .contact{
+    padding-top:18px !important;
+  }
+
+  .section-head{
+    margin-bottom:26px !important;
+    padding-bottom:18px !important;
+    gap:5px !important;
+  }
+
+  .section-no{
+    margin:0 0 2px !important;
+    padding:0 !important;
+    line-height:1 !important;
+  }
+
+  /* Smaller phone headings, deliberately below the ZENO MAINARDI scale. */
+  .section-head h1{
+    font-size:20px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+
+  .equipment .section-head h1{
+    font-size:17px !important;
+    letter-spacing:-.025em !important;
+  }
+
+  .section-head p,
+  .services .section-head p,
+  .equipment .section-head p,
+  .workflow .section-head p,
+  .contact .section-head p,
+  .portfolio .section-head p,
+  .about .section-head p{
+    font-size:10px !important;
+    line-height:1.2 !important;
+  }
+
+  /* SERVICES:
+     Music Production remains the featured full-width first card,
+     but all five cards now share exactly the same height. */
+  .services-strip article,
+  .services-strip article:first-child,
+  .services-strip article:last-child{
+    min-height:112px !important;
+    height:112px !important;
+    padding:12px !important;
+  }
+
+  .services-strip article:first-child{
+    grid-column:1 / -1 !important;
+  }
+
+  .services-strip article:last-child{
+    grid-column:auto !important;
+  }
+
+  .services-strip article:first-child h2,
+  .services-strip h2{
+    font-size:17px !important;
+  }
+
+  /* WORKFLOW:
+     first six cards remain 2 × 3,
+     Final Product becomes the full-width bottom row. */
+  .compact-pipeline > div{
+    min-height:112px !important;
+    height:112px !important;
+  }
+
+  .compact-pipeline > div:last-child{
+    grid-column:1 / -1 !important;
+  }
+
+  /* Equipment remains centered on phone. */
+  .gear-block ul,
+  .gear-block .software{
+    grid-template-columns:1fr !important;
+    gap:5px !important;
+    text-align:center !important;
+  }
+
+  .gear-block li{
+    text-align:center !important;
+  }
+
+  /* File Sending Guidelines smaller on phone. */
+  .file-guidelines .workflow-title-row h2{
+    font-size:19px !important;
+    line-height:1 !important;
+  }
+
+  /* Match Contact statement to About pullquote on phone. */
+  .pullquote,
+  .contact-statement h2{
+    font-size:20px !important;
+    line-height:1.08 !important;
+  }
+}
+
+@media (max-width:390px){
+  .section-head h1{
+    font-size:19px !important;
+  }
+
+  .equipment .section-head h1{
+    font-size:16px !important;
+  }
+
+  .section-head p,
+  .services .section-head p,
+  .equipment .section-head p,
+  .workflow .section-head p,
+  .contact .section-head p,
+  .portfolio .section-head p,
+  .about .section-head p{
+    font-size:9px !important;
+  }
+}
