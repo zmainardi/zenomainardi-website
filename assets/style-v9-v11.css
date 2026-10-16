@@ -1,0 +1,471 @@
+/* ===== V9 layout correction pass ===== */
+
+/* Keep every major section descriptor on the right side of the title row */
+.section-head{
+  grid-template-columns:44px minmax(0,1fr) auto;
+  align-items:end;
+}
+.section-head p{
+  grid-column:auto;
+  justify-self:end;
+  text-align:right;
+  white-space:nowrap;
+  margin-top:0;
+  font-size:15px;
+}
+
+/* Portfolio filter labels: larger, clearer */
+.filters button{
+  font-size:12px;
+  letter-spacing:.10em;
+  font-weight:600;
+  min-height:48px;
+  padding:12px 14px;
+}
+
+/* Services descriptor stays on the right, same treatment */
+.services .section-head p,
+.equipment .section-head p,
+.workflow .section-head p,
+.contact .section-head p,
+.portfolio .section-head p,
+.about .section-head p{
+  justify-self:end;
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* Workflow: a fluid organogram strip, all 7 in one row */
+.compact-pipeline{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  border:0;
+  gap:0;
+}
+.compact-pipeline>div{
+  position:relative;
+  min-height:110px;
+  height:110px;
+  padding:14px 14px 12px;
+  border-top:1px solid var(--dark-rule);
+  border-right:1px solid var(--dark-rule);
+  border-bottom:1px solid var(--dark-rule);
+  border-left:0;
+  background:transparent;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.compact-pipeline>div:first-child{
+  border-left:1px solid var(--dark-rule);
+}
+.step-top{
+  min-height:26px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.step-top b{
+  font-size:9px;
+  line-height:1;
+  color:#77756f;
+  font-weight:400;
+}
+.step-top svg{
+  width:23px;
+  height:23px;
+  margin:0;
+  color:#8e8b84;
+  flex:0 0 auto;
+}
+.compact-pipeline span{
+  margin:0;
+  font-size:15px;
+  line-height:1;
+  letter-spacing:-.015em;
+  font-weight:500;
+  color:var(--off);
+}
+
+/* File Sending Guidelines: title left, helper right, compact row */
+.workflow-title-row{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:36px;
+  align-items:end;
+  padding:44px 0 20px;
+  border-bottom:1px solid var(--dark-rule);
+}
+.workflow-title-row h2{
+  margin:0;
+  font-size:clamp(30px,3.1vw,42px);
+  line-height:.96;
+  white-space:nowrap;
+}
+.workflow-title-row p{
+  margin:0;
+  max-width:none;
+  justify-self:end;
+  text-align:right;
+  white-space:nowrap;
+  font-size:13px;
+  line-height:1.3;
+}
+
+/* Tighten guideline blocks: no giant gap between A/B/C and headings */
+.workflow-content{
+  grid-template-columns:1.8fr 1.1fr 1.1fr;
+}
+.workflow-content article{
+  padding:20px 22px 26px;
+}
+.guide-index{
+  margin:0 0 12px;
+  font-size:10px;
+}
+.workflow-content h3{
+  margin:0 0 15px;
+  font-size:12px;
+}
+.workflow-content p,
+.workflow-content li{
+  font-size:14px;
+  line-height:1.52;
+}
+.mixing-guide ol{
+  columns:2;
+  column-gap:34px;
+}
+
+/* Slightly tighten file-guideline area overall */
+.workflow-content ul,
+.workflow-content ol{
+  margin-top:0;
+}
+
+/* Contact descriptor stays on right */
+.contact .section-head p{
+  justify-self:end;
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* Responsive: collapse only when genuinely necessary */
+@media(max-width:1150px){
+  .section-head{
+    grid-template-columns:40px 1fr;
+  }
+  .section-head p{
+    grid-column:2;
+    justify-self:start;
+    text-align:left;
+    white-space:normal;
+    margin-top:4px;
+  }
+
+  .compact-pipeline{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .workflow-title-row{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .workflow-title-row p{
+    justify-self:start;
+    text-align:left;
+    white-space:normal;
+  }
+}
+
+@media(max-width:760px){
+  .filters button{
+    font-size:11px;
+  }
+
+  .compact-pipeline{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .compact-pipeline>div{
+    min-height:105px;
+    height:105px;
+  }
+
+  .workflow-content{
+    grid-template-columns:1fr;
+  }
+  .mixing-guide ol{
+    columns:1;
+  }
+}
+
+/* ===== V10: white header + fixed workflow icon geometry ===== */
+
+/* Header is its own white band. Portfolio starts black immediately below it. */
+.site-nav{
+  background:rgba(242,240,234,.97) !important;
+  color:#101010 !important;
+  border-bottom:1px solid #c9c5bc !important;
+  backdrop-filter:blur(9px);
+}
+.logo b{color:#101010 !important}
+.logo small{color:#66635d !important}
+.site-nav nav a{color:#24231f !important}
+.site-nav nav a:hover{color:var(--accent) !important}
+
+/* Workflow strip: clean service-card geometry. */
+.compact-pipeline{
+  display:grid !important;
+  grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+  gap:0 !important;
+  border:0 !important;
+  width:100% !important;
+}
+.compact-pipeline > div{
+  position:relative !important;
+  height:142px !important;
+  min-height:142px !important;
+  padding:15px 15px 15px !important;
+  border-top:1px solid var(--dark-rule) !important;
+  border-right:1px solid var(--dark-rule) !important;
+  border-bottom:1px solid var(--dark-rule) !important;
+  border-left:0 !important;
+  background:transparent !important;
+  display:block !important;
+}
+.compact-pipeline > div:first-child{
+  border-left:1px solid var(--dark-rule) !important;
+}
+
+/* Number is fixed top-left. */
+.compact-pipeline .step-top{
+  position:static !important;
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.compact-pipeline .step-top b{
+  position:absolute !important;
+  top:15px !important;
+  left:15px !important;
+  margin:0 !important;
+  font-size:9px !important;
+  line-height:1 !important;
+  font-weight:400 !important;
+  color:#77756f !important;
+}
+
+/* Icon is independently pinned to the top-right corner of its rectangle. */
+.compact-pipeline .step-top svg{
+  position:absolute !important;
+  top:13px !important;
+  right:14px !important;
+  left:auto !important;
+  bottom:auto !important;
+  width:27px !important;
+  height:27px !important;
+  margin:0 !important;
+  color:#9b9890 !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.45 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+/* Step name is fixed to the lower-left, like Services. */
+.compact-pipeline > div > span{
+  position:absolute !important;
+  left:15px !important;
+  right:15px !important;
+  bottom:15px !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:clamp(17px,1.35vw,22px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.025em !important;
+  font-weight:500 !important;
+  color:var(--off) !important;
+}
+
+/* Responsive: keep same corner geometry while changing column count. */
+@media(max-width:1150px){
+  .compact-pipeline{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px){
+  .compact-pipeline{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .compact-pipeline > div{
+    height:128px !important;
+    min-height:128px !important;
+  }
+  .compact-pipeline > div > span{
+    font-size:19px !important;
+  }
+}
+@media(max-width:390px){
+  .compact-pipeline > div{
+    height:120px !important;
+    min-height:120px !important;
+    padding:13px !important;
+  }
+  .compact-pipeline .step-top b{top:13px !important;left:13px !important}
+  .compact-pipeline .step-top svg{top:11px !important;right:12px !important;width:25px !important;height:25px !important}
+  .compact-pipeline > div > span{left:13px !important;right:13px !important;bottom:13px !important;font-size:17px !important}
+}
+
+
+/* ===== V11 header + workflow cleanup ===== */
+
+/* Header identity */
+.site-nav{
+  min-height:110px;
+  align-items:center;
+}
+
+.logo{
+  min-width:360px;
+  gap:7px;
+}
+
+.logo b{
+  font-size:clamp(34px,3.6vw,50px);
+  line-height:.88;
+  letter-spacing:-.045em;
+}
+
+.logo small{
+  display:block;
+  width:100%;
+  font-size:clamp(13px,1.15vw,17px);
+  line-height:1;
+  letter-spacing:.09em;
+  color:#33312d;
+  white-space:nowrap;
+}
+
+/* Header navigation: larger and closer to the identity subtitle in scale */
+.site-nav nav{
+  gap:28px;
+  font-size:clamp(12px,1.05vw,16px);
+  letter-spacing:.08em;
+  font-weight:500;
+}
+
+.site-nav nav a{
+  padding:10px 0;
+}
+
+/* Workflow: slightly narrower cells and no stray top divider line */
+.compact-pipeline{
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  border-top:0 !important;
+}
+
+.compact-pipeline>div{
+  min-height:142px;
+  height:142px;
+  padding:14px 13px 13px;
+  border-top:1px solid var(--dark-rule);
+  position:relative;
+}
+
+/* Explicitly remove pseudo-elements / internal rules that could appear between number and icon */
+.compact-pipeline>div::before,
+.compact-pipeline>div::after,
+.step-top::before,
+.step-top::after{
+  content:none !important;
+  display:none !important;
+}
+
+.step-top{
+  position:relative;
+  min-height:26px;
+  width:100%;
+  border:0 !important;
+  background:none !important;
+}
+
+.step-top b{
+  position:absolute;
+  top:0;
+  left:0;
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+.step-top svg{
+  position:absolute;
+  top:0;
+  right:0;
+  width:23px;
+  height:23px;
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+/* Keep the workflow label clean at the bottom-left */
+.compact-pipeline span{
+  margin-top:auto;
+  padding-top:0;
+  border:0;
+}
+
+/* Responsive header */
+@media(max-width:1100px){
+  .logo{
+    min-width:300px;
+  }
+  .site-nav nav{
+    gap:18px;
+    font-size:12px;
+  }
+  .logo small{
+    font-size:12px;
+  }
+}
+
+@media(max-width:820px){
+  .site-nav{
+    min-height:86px;
+  }
+  .logo{
+    min-width:0;
+  }
+  .logo b{
+    font-size:28px;
+  }
+  .logo small{
+    font-size:10px;
+    white-space:normal;
+  }
+  .site-nav nav{
+    gap:11px;
+    font-size:10px;
+  }
+
+  .compact-pipeline{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:560px){
+  .site-nav nav a:nth-child(3),
+  .site-nav nav a:nth-child(4){
+    display:none;
+  }
+  .site-nav nav{
+    gap:10px;
+    font-size:10px;
+  }
+}
