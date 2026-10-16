@@ -1,0 +1,1 @@
+Version 14 — mobile-focused responsive pass. Desktop styling remains V13 except that File Sending Guidelines are now collapsible on both desktop and mobile.
