@@ -1,5 +1,10 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+const aboutPullquote = document.querySelector(".pullquote");
+if (aboutPullquote) {
+  aboutPullquote.textContent = "Let’s make something you’ll be proud to play loud!";
+}
+
 // V15: complete the portfolio wall to 12 real credits before filter state is captured.
 (() => {
   const wall = document.querySelector(".portfolio-wall");
