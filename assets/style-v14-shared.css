@@ -1,0 +1,31 @@
+/* V14 shared: collapsible File Sending Guidelines only */
+.file-guidelines{
+  border:0;
+}
+.file-guidelines > summary{
+  list-style:none;
+  cursor:pointer;
+}
+.file-guidelines > summary::-webkit-details-marker{
+  display:none;
+}
+.guideline-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;
+  height:30px;
+  border:1px solid var(--dark-rule);
+  font-size:20px;
+  line-height:1;
+  transition:transform .2s ease;
+}
+.file-guidelines[open] .guideline-toggle{
+  transform:rotate(45deg);
+}
+.file-guidelines .workflow-title-row{
+  grid-template-columns:auto 1fr auto;
+}
+.file-guidelines .workflow-content{
+  margin-top:0;
+}
