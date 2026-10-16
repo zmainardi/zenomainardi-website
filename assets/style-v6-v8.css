@@ -1,0 +1,671 @@
+/* ===== V6 visual refinement ===== */
+.section-head p{
+  font-size:17px;
+  line-height:1.45;
+  max-width:370px;
+}
+.dark .section-head p{color:#b0ada5}
+.light .section-head p{color:#4e4b45}
+
+/* portfolio: a complete edge-to-edge image wall */
+.portfolio-wall{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  border-top:1px solid var(--dark-rule);
+  border-left:1px solid var(--dark-rule);
+}
+.portfolio-wall .project{
+  aspect-ratio:1.12 / 1;
+  border:0;
+  border-right:1px solid var(--dark-rule);
+  border-bottom:1px solid var(--dark-rule);
+}
+.portfolio-wall .project-image img{
+  width:100%;height:100%;object-fit:cover;
+}
+.portfolio-wall .project-shade{
+  background:linear-gradient(to top,rgba(0,0,0,.86) 0%,rgba(0,0,0,.38) 38%,rgba(0,0,0,0) 72%);
+}
+.portfolio-wall .project-meta{
+  left:22px;right:22px;bottom:20px;
+}
+.portfolio-wall .project-meta h2{
+  font-size:clamp(25px,2.5vw,39px);
+}
+
+/* restrained service icons */
+.service-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.line-icon{
+  width:34px;height:34px;
+  color:#24231f;
+  opacity:.74;
+}
+.line-icon svg,
+.step-top svg{
+  width:100%;height:100%;
+  fill:none;stroke:currentColor;stroke-width:1.45;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.services-strip article{
+  min-height:215px;
+}
+.services-strip h2{
+  margin:auto 0 11px;
+}
+
+/* About now relies on the section description + body copy, not a redundant headline */
+.about-copy{
+  padding-top:2px;
+}
+.about-copy>p:first-child{
+  margin-top:0;
+  font-size:clamp(17px,1.4vw,21px);
+  color:#d0cdc5;
+}
+.pullquote{
+  margin-top:44px;
+  padding:22px 0 0 24px;
+  border-top:0;
+  border-left:2px solid var(--accent);
+  font-size:clamp(22px,2vw,31px);
+  white-space:normal;
+}
+
+/* workflow should read as an infographic, not as clickable cards */
+.compact-pipeline{
+  grid-template-columns:repeat(7,1fr);
+  border-left:0;
+  border-top:1px solid var(--dark-rule);
+  border-bottom:1px solid var(--dark-rule);
+}
+.compact-pipeline>div{
+  height:118px;
+  border-bottom:0;
+  padding:15px 16px 13px;
+}
+.compact-pipeline>div:first-child{border-left:1px solid var(--dark-rule)}
+.step-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.step-top svg{
+  width:25px;height:25px;
+  color:#8e8b84;
+}
+.compact-pipeline span{
+  font-size:13px;
+  line-height:1.05;
+}
+.workflow-title-row{
+  padding-top:66px;
+}
+
+/* contact / section descriptors get a little more presence */
+.contact .section-head p,
+.workflow .section-head p,
+.equipment .section-head p,
+.about .section-head p,
+.services .section-head p,
+.portfolio .section-head p{
+  font-size:17px;
+}
+
+@media(max-width:900px){
+  .portfolio-wall{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .compact-pipeline{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:620px){
+  .section-head p{font-size:15px}
+  .portfolio-wall{grid-template-columns:1fr}
+  .portfolio-wall .project{aspect-ratio:1.18 / 1}
+  .services-strip{grid-template-columns:1fr 1fr}
+  .compact-pipeline{grid-template-columns:1fr 1fr}
+}
+
+
+/* ===== V7 consistency + typography pass ===== */
+
+/* Larger site identity */
+.site-nav{
+  min-height:100px;
+  padding:0 36px;
+}
+.logo{gap:6px}
+.logo b{
+  font-size:clamp(30px,3.2vw,46px);
+  line-height:.9;
+  letter-spacing:-.045em;
+  font-weight:600;
+}
+.logo small{
+  font-size:12px;
+  letter-spacing:.13em;
+  color:#aaa69d;
+}
+
+/* Standardized section headers */
+.section-head{
+  grid-template-columns:44px minmax(0,1fr) auto;
+  gap:26px;
+  align-items:end;
+  padding-bottom:22px;
+  margin-bottom:38px;
+}
+.section-head h1{
+  font-size:clamp(44px,4.4vw,62px);
+  line-height:.92;
+  letter-spacing:-.05em;
+  font-weight:600;
+}
+.section-head p{
+  font-size:16px;
+  line-height:1.25;
+  max-width:none;
+  white-space:nowrap;
+  justify-self:end;
+  text-align:right;
+  padding-bottom:3px;
+}
+.dark .section-head p{color:#b8b4ac}
+.light .section-head p{color:#4c4943}
+
+/* Portfolio filter bar: full-width, evenly distributed */
+.filters{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  width:100%;
+  margin-bottom:14px;
+}
+.filters button{
+  width:100%;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  text-align:center;
+}
+.filters button:first-child{border-left:0}
+
+/* Services: more rectangular, closer to workflow proportions */
+.services-strip article{
+  min-height:150px;
+  padding:15px 16px 16px;
+}
+.service-top{min-height:34px}
+.line-icon{
+  width:26px;
+  height:26px;
+}
+.services-strip h2{
+  margin:auto 0 8px;
+  font-size:clamp(21px,1.85vw,28px);
+  line-height:.95;
+}
+.services-strip p{
+  font-size:11px;
+  line-height:1.3;
+}
+
+/* About */
+.about .section-head p{font-size:17px}
+.about-grid{gap:clamp(58px,7vw,110px)}
+.about-copy>p{font-size:clamp(15px,1.14vw,18px)}
+.pullquote{
+  margin-top:40px;
+  padding:20px 0 0;
+  border-left:0;
+  border-top:1px solid var(--dark-rule);
+  font-size:clamp(28px,3vw,44px);
+  line-height:1;
+  letter-spacing:-.04em;
+  text-align:center;
+  white-space:nowrap;
+}
+
+/* Equipment descriptor */
+.equipment .section-head p{
+  white-space:nowrap;
+  font-size:16px;
+}
+
+/* Workflow */
+.compact-pipeline{
+  grid-template-columns:repeat(7,1fr);
+}
+.compact-pipeline>div{
+  height:150px;
+  padding:15px 15px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.step-top{
+  width:100%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  min-height:28px;
+}
+.step-top b{line-height:1}
+.step-top svg{
+  flex:0 0 auto;
+  width:24px;
+  height:24px;
+  margin:0;
+}
+.compact-pipeline span{
+  display:block;
+  margin-top:auto;
+  font-size:13px;
+  line-height:1.08;
+}
+
+.workflow-title-row{
+  grid-template-columns:auto 1fr;
+  gap:48px;
+  align-items:end;
+  padding-top:58px;
+}
+.workflow-title-row h2{
+  font-size:clamp(30px,3.1vw,44px);
+  white-space:nowrap;
+}
+.workflow-title-row p{
+  max-width:none;
+  white-space:nowrap;
+  justify-self:end;
+  text-align:right;
+  font-size:12px;
+}
+
+/* Contact */
+.contact .section-head p{
+  white-space:nowrap;
+  font-size:16px;
+}
+.contact-grid{
+  grid-template-columns:.88fr 1.12fr;
+  gap:90px;
+}
+.contact-statement h2{
+  font-size:clamp(28px,3vw,44px);
+  line-height:1;
+  letter-spacing:-.04em;
+  white-space:nowrap;
+  margin-bottom:38px;
+}
+.contact-statement a{font-size:17px}
+.contact-statement p{font-size:13px}
+.contact form{gap:26px 30px}
+.contact form label{font-size:10px}
+.contact input{
+  min-height:48px;
+  font-size:16px;
+  padding:10px 0 14px;
+}
+.contact textarea{
+  min-height:190px;
+  font-size:16px;
+  padding:16px;
+}
+.contact form button{
+  font-size:11px;
+  padding-top:13px;
+  padding-bottom:9px;
+}
+
+.section{padding:76px 0 88px}
+
+/* Tablet */
+@media(max-width:1080px){
+  .site-nav{min-height:88px}
+  .logo b{font-size:32px}
+  .logo small{font-size:10px}
+
+  .section-head{grid-template-columns:40px 1fr}
+  .section-head p{
+    grid-column:2;
+    justify-self:start;
+    text-align:left;
+    white-space:normal;
+    margin-top:2px;
+  }
+
+  .filters{grid-template-columns:repeat(3,1fr)}
+
+  .workflow-title-row{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .workflow-title-row p{
+    justify-self:start;
+    text-align:left;
+    white-space:normal;
+  }
+
+  .contact-statement h2,
+  .pullquote{white-space:normal}
+}
+
+/* Mobile */
+@media(max-width:760px){
+  .site-nav{
+    min-height:76px;
+    padding:0 15px;
+  }
+  .logo b{
+    font-size:24px;
+    letter-spacing:-.03em;
+  }
+  .logo small{display:none}
+
+  .section-head{
+    display:block;
+    margin-bottom:30px;
+  }
+  .section-head h1{font-size:42px}
+  .section-head p{
+    margin-top:14px;
+    font-size:15px;
+    white-space:normal;
+    text-align:left;
+  }
+
+  .filters{
+    display:flex;
+    overflow-x:auto;
+  }
+  .filters button{
+    width:auto;
+    min-width:145px;
+  }
+
+  .services-strip article{min-height:145px}
+  .pullquote{font-size:28px}
+
+  .compact-pipeline{grid-template-columns:1fr 1fr}
+  .compact-pipeline>div{height:130px}
+
+  .workflow-title-row h2{white-space:normal}
+
+  .contact-grid{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+  .contact-statement h2{white-space:normal}
+}
+
+
+/* ===== V8 scale + responsive refinement ===== */
+
+/* Bigger top navigation */
+.site-nav nav{
+  gap:28px;
+  font-size:11px;
+  letter-spacing:.13em;
+}
+.site-nav nav a{
+  padding:8px 0;
+}
+
+/* Main section titles: 1–2 steps smaller */
+.section-head h1{
+  font-size:clamp(34px,3.25vw,48px);
+  line-height:.96;
+  letter-spacing:-.04em;
+  font-weight:600;
+}
+
+/* Section descriptions remain clear but secondary */
+.section-head p{
+  font-size:15px;
+  line-height:1.25;
+  white-space:nowrap;
+}
+
+/* Keep the full-width color bands completely fluid */
+.section{
+  width:100%;
+}
+.dark,.light{
+  width:100%;
+}
+.shell{
+  width:min(calc(100% - 56px),var(--max));
+  max-width:var(--max);
+}
+
+/* About: all biography paragraphs use one consistent size */
+.about-copy>p,
+.about-copy>p:first-child{
+  font-size:clamp(15px,1.12vw,18px);
+  line-height:1.58;
+  color:#bbb8b0;
+}
+.about .section-head p{
+  font-size:15px;
+}
+
+/* Pull quote: smaller and fully adaptive */
+.pullquote{
+  margin-top:34px;
+  padding:18px 0 0;
+  font-size:clamp(20px,2vw,30px);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+
+/* Services and Workflow share the same card language */
+.services-strip article,
+.compact-pipeline>div{
+  min-height:150px;
+  height:150px;
+  padding:15px 16px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.service-top,
+.step-top{
+  min-height:34px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+.line-icon,
+.step-top svg{
+  width:26px;
+  height:26px;
+  flex:0 0 auto;
+}
+
+.services-strip h2,
+.compact-pipeline span{
+  margin:auto 0 8px;
+  font-size:clamp(20px,1.7vw,27px);
+  line-height:.95;
+  letter-spacing:-.035em;
+  font-weight:500;
+}
+
+.compact-pipeline{
+  grid-template-columns:repeat(7,1fr);
+  border-left:1px solid var(--dark-rule);
+  border-top:1px solid var(--dark-rule);
+  border-bottom:0;
+}
+.compact-pipeline>div{
+  border-right:1px solid var(--dark-rule);
+  border-bottom:1px solid var(--dark-rule);
+}
+.compact-pipeline>div:first-child{
+  border-left:0;
+}
+.compact-pipeline span{
+  color:var(--off);
+}
+
+/* File-sending guidelines: one size larger */
+.workflow-title-row h2{
+  font-size:clamp(32px,3.4vw,48px);
+}
+.workflow-title-row p{
+  font-size:14px;
+  line-height:1.4;
+}
+.workflow-content h3{
+  font-size:12px;
+  letter-spacing:.12em;
+}
+.workflow-content p,
+.workflow-content li{
+  font-size:14px;
+  line-height:1.6;
+}
+.guide-index{
+  font-size:11px;
+}
+
+/* Contact: statement smaller, form one size larger */
+.contact-statement h2{
+  font-size:clamp(24px,2.6vw,38px);
+  line-height:1.05;
+  white-space:normal;
+}
+.contact .section-head p{
+  font-size:15px;
+}
+.contact form label{
+  font-size:11px;
+}
+.contact input{
+  min-height:54px;
+  font-size:17px;
+}
+.contact textarea{
+  min-height:220px;
+  font-size:17px;
+}
+.contact form button{
+  font-size:12px;
+}
+
+/* Responsive behavior */
+@media(max-width:1180px){
+  .section-head{
+    grid-template-columns:42px 1fr;
+  }
+  .section-head p{
+    grid-column:2;
+    justify-self:start;
+    text-align:left;
+    white-space:normal;
+    margin-top:4px;
+  }
+
+  .compact-pipeline{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .workflow-title-row{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .workflow-title-row p{
+    justify-self:start;
+    text-align:left;
+    white-space:normal;
+  }
+}
+
+@media(max-width:900px){
+  .site-nav nav{
+    gap:16px;
+    font-size:10px;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-strip{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .services-strip article:last-child{
+    grid-column:1 / -1;
+  }
+
+  .compact-pipeline{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:760px){
+  .shell{
+    width:min(calc(100% - 28px),var(--max));
+  }
+
+  .section-head h1{
+    font-size:34px;
+  }
+
+  .section-head p{
+    font-size:14px;
+  }
+
+  .site-nav nav{
+    gap:10px;
+    font-size:9px;
+  }
+
+  .pullquote{
+    font-size:23px;
+    text-align:left;
+  }
+
+  .services-strip article,
+  .compact-pipeline>div{
+    min-height:138px;
+    height:138px;
+  }
+
+  .services-strip h2,
+  .compact-pipeline span{
+    font-size:22px;
+  }
+
+  .workflow-content{
+    grid-template-columns:1fr;
+  }
+  .mixing-guide{
+    grid-column:auto;
+  }
+  .mixing-guide ol{
+    columns:1;
+  }
+
+  .workflow-title-row h2{
+    font-size:30px;
+  }
+
+  .contact-statement h2{
+    font-size:30px;
+  }
+}
