@@ -1,0 +1,35 @@
+/* =========================================================
+   V19 — non-italic section subtitles, closed delivery-guide
+   border, and centered gear descriptions.
+   Preserves V17 section spacing and V18 gear column layout.
+   ========================================================= */
+
+/* Keep V18's larger, unified subtitle size, but restore upright type. */
+.section-head p,
+.portfolio .section-head p,
+.services .section-head p,
+.about .section-head p,
+.equipment .section-head p,
+.workflow .section-head p,
+.contact .section-head p {
+  font-style:normal !important;
+}
+
+/* Guidelines no longer have a right-side transfer-instructions subtitle. */
+.workflow-title-row {
+  grid-template-columns:minmax(0,1fr) !important;
+}
+
+/* Close the top edge of all three adjacent delivery-guideline cards. */
+.workflow-content {
+  border-top:1px solid var(--dark-rule) !important;
+}
+
+/* Center each item's text without changing the desktop three-column
+   grouping, the two subcolumns within the first four gear groups,
+   or the single-list Software & Plugins panel. */
+.equipment .gear-block ul,
+.equipment .gear-block .software,
+.equipment .gear-block li {
+  text-align:center !important;
+}
