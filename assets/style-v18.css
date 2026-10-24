@@ -1,0 +1,153 @@
+/* =========================================================
+   V18 — tighter Portfolio wall, restored Services outline,
+   consistent italic subtitles and compact 3-column equipment.
+   Retains V17 section rhythm and the permanently open guidelines.
+   ========================================================= */
+
+/* Section subtitles: one editorial treatment everywhere. */
+.section-head p,
+.portfolio .section-head p,
+.services .section-head p,
+.about .section-head p,
+.equipment .section-head p,
+.workflow .section-head p,
+.contact .section-head p {
+  font-size:17px !important;
+  line-height:1.35 !important;
+  font-style:italic !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+}
+
+/* Portfolio filters are the grid's top edge, with no interstitial gap
+   or double border where filter buttons meet the first image row. */
+.portfolio .filters {
+  margin-bottom:0 !important;
+}
+.portfolio .portfolio-wall {
+  border-top:0 !important;
+}
+
+/* Services cards form a closed set of outlined rectangles. */
+.services .services-strip {
+  border-top:1px solid var(--light-rule) !important;
+}
+
+/* Desktop: two compact gear blocks in column 1, two in column 2,
+   and one full-height Software & Plugins block in column 3.
+   The first four groups retain their two internal text columns. */
+.equipment .gear-grid {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  grid-template-rows:auto auto;
+  align-items:stretch;
+}
+.equipment .gear-grid > .gear-block {
+  min-width:0;
+  padding:18px 18px 20px !important;
+}
+.equipment .gear-grid > .gear-block:nth-child(1) {
+  grid-column:1 !important;
+  grid-row:1 !important;
+}
+.equipment .gear-grid > .gear-block:nth-child(2) {
+  grid-column:2 !important;
+  grid-row:1 !important;
+}
+.equipment .gear-grid > .gear-block:nth-child(3) {
+  grid-column:1 !important;
+  grid-row:2 !important;
+}
+.equipment .gear-grid > .gear-block:nth-child(4) {
+  grid-column:2 !important;
+  grid-row:2 !important;
+}
+.equipment .gear-grid > .gear-block:nth-child(5) {
+  grid-column:3 !important;
+  grid-row:1 / span 2 !important;
+}
+.equipment .gear-block h3 {
+  margin:0 0 15px !important;
+  font-size:10px;
+  line-height:1.35;
+  text-align:center !important;
+}
+.equipment .gear-block ul {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:4px 12px !important;
+  margin:0 !important;
+  padding:0 !important;
+  list-style:none !important;
+  columns:auto !important;
+  text-align:left !important;
+}
+.equipment .gear-block li {
+  min-width:0;
+  font-size:12px !important;
+  line-height:1.38 !important;
+  overflow-wrap:break-word;
+  text-align:left !important;
+}
+/* Software stays a SINGLE, readable list in the rightmost column. */
+.equipment .gear-block .software {
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:6px 0 !important;
+}
+
+/* On narrow desktops/tablets, use two comfortable columns. */
+@media(max-width:1120px) and (min-width:761px) {
+  .equipment .gear-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:auto !important;
+  }
+  .equipment .gear-grid > .gear-block {
+    grid-column:auto !important;
+    grid-row:auto !important;
+  }
+  .equipment .gear-grid > .gear-block:last-child {
+    grid-column:1 / -1 !important;
+    grid-row:auto !important;
+  }
+  .equipment .gear-block .software {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:4px 18px !important;
+  }
+}
+
+/* Keep mobile readable without undoing V17's equal section margins. */
+@media(max-width:760px) {
+  .section-head p,
+  .portfolio .section-head p,
+  .services .section-head p,
+  .about .section-head p,
+  .equipment .section-head p,
+  .workflow .section-head p,
+  .contact .section-head p {
+    font-size:12px !important;
+    line-height:1.3 !important;
+    white-space:normal !important;
+    max-width:100% !important;
+    overflow-wrap:normal;
+  }
+  .equipment .gear-grid {
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-rows:auto !important;
+  }
+  .equipment .gear-grid > .gear-block,
+  .equipment .gear-grid > .gear-block:last-child {
+    grid-column:auto !important;
+    grid-row:auto !important;
+    padding:18px 16px 20px !important;
+  }
+  .equipment .gear-block ul,
+  .equipment .gear-block .software {
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:5px 0 !important;
+    text-align:center !important;
+  }
+  .equipment .gear-block li {
+    font-size:13px !important;
+    text-align:center !important;
+  }
+}
