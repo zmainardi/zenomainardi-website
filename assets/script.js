@@ -115,29 +115,3 @@ document.getElementById("contact-form").addEventListener("submit", event => {
   if (prev) prev.addEventListener("click", () => show(current - 1));
   if (next) next.addEventListener("click", () => show(current + 1));
 })();
-
-// V14+: make File Sending Guidelines collapsible on desktop and mobile
-(() => {
-  const titleRow = document.querySelector(".workflow-title-row");
-  const content = document.querySelector(".workflow-content");
-  if (!titleRow || !content || titleRow.closest("details")) return;
-
-  const details = document.createElement("details");
-  details.className = "file-guidelines";
-
-  const summary = document.createElement("summary");
-  summary.className = "workflow-title-row";
-
-  while (titleRow.firstChild) summary.appendChild(titleRow.firstChild);
-
-  const toggle = document.createElement("span");
-  toggle.className = "guideline-toggle";
-  toggle.setAttribute("aria-hidden", "true");
-  toggle.textContent = "+";
-  summary.appendChild(toggle);
-
-  titleRow.parentNode.insertBefore(details, titleRow);
-  details.appendChild(summary);
-  details.appendChild(content);
-  titleRow.remove();
-})();
