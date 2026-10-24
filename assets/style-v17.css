@@ -1,0 +1,106 @@
+/* V17 — equal section rhythm, open guidelines and balanced delivery columns.
+   The former bottom padding of Services (58px desktop, 44px tablet,
+   34px phone) is now the unit above titles, below titles and after content. */
+:root{--section-rhythm:58px}
+
+.section,
+.portfolio,
+.services,
+.about,
+.equipment,
+.workflow,
+.contact{
+  padding-top:var(--section-rhythm) !important;
+  padding-bottom:var(--section-rhythm) !important;
+}
+
+/* One unified header-to-content distance, without ornamental rules.
+   Content grids and gallery borders intentionally remain untouched. */
+.section-head,
+.services .section-head,
+.workflow .section-head{
+  border:0 !important;
+  border-bottom:0 !important;
+  padding:0 !important;
+  margin-bottom:var(--section-rhythm) !important;
+}
+
+/* The file-delivery heading uses the exact same gap above and below. */
+.workflow-title-row{
+  display:grid !important;
+  grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr) !important;
+  gap:18px 36px !important;
+  align-items:end !important;
+  border:0 !important;
+  border-bottom:0 !important;
+  padding:0 !important;
+  margin-top:var(--section-rhythm) !important;
+  margin-bottom:var(--section-rhythm) !important;
+}
+.workflow-title-row h2{
+  font-size:clamp(23px,2.25vw,32px) !important;
+  line-height:1.04 !important;
+  white-space:normal !important;
+}
+.workflow-title-row p{
+  max-width:none;
+  justify-self:end;
+  text-align:right;
+  white-space:normal !important;
+}
+
+/* A Budget, B Mixing, C Mastering: give the long mixing instructions
+   the widest card even though they are now the second item. */
+.workflow-content{
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1.85fr) minmax(0,1.1fr) !important;
+}
+.workflow-content .mixing-guide{grid-column:auto !important}
+
+@media (max-width:1100px){
+  :root{--section-rhythm:44px}
+  .workflow-title-row{grid-template-columns:1fr !important}
+  .workflow-title-row p{justify-self:start;text-align:left}
+  .workflow-content{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .workflow-content article:first-child{grid-column:1/-1 !important}
+  .workflow-content article.mixing-guide,
+  .workflow-content article:last-child{grid-column:auto !important}
+  .mixing-guide ol{columns:1 !important}
+}
+@media (max-width:760px){
+  :root{--section-rhythm:34px}
+  .section-head,
+  .services .section-head,
+  .workflow .section-head{
+    margin-bottom:var(--section-rhythm) !important;
+    padding:0 !important;
+    border:0 !important;
+  }
+  .workflow-title-row{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:12px !important;
+    text-align:center !important;
+  }
+  .workflow-title-row h2{
+    font-size:clamp(19px,5.1vw,23px) !important;
+    text-align:center !important;
+  }
+  .workflow-title-row p{
+    justify-self:center;
+    align-self:center;
+    text-align:center !important;
+    font-size:11px !important;
+    line-height:1.4 !important;
+    max-width:340px !important;
+  }
+  .workflow-content{grid-template-columns:1fr !important}
+  .workflow-content article,
+  .workflow-content article:first-child,
+  .workflow-content article.mixing-guide,
+  .workflow-content article:last-child{
+    grid-column:auto !important;
+    padding:20px 18px 26px !important;
+  }
+  .mixing-guide ol{columns:1 !important}
+}
